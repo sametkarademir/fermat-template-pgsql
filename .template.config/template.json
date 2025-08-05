@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Samet Karademir",
+  "classifications": ["Web", "Clean Architecture", "PostgreSQL", "Entity Framework", "ASP.NET Core"],
+  "name": "Fermat Clean Architecture Template with PostgreSQL",
+  "identity": "Fermat.CleanArch.Template.PgSql",
+  "shortName": "fermat-clean-arch-postgres",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sourceName": "Fermat.Template.PgSql",
+  "preferNameDirectory": false,
+  "symbols": {
+    "ProjectName": {
+      "type": "parameter",
+      "datatype": "string",
+      "replaces": "Fermat.Template.PgSql",
+      "defaultValue": "MyProject",
+      "description": "The name of the project"
+    }
+  },
+  "postActions": [
+    {
+      "description": "Restore NuGet packages",
+      "manualInstructions": [
+        {
+          "text": "Run 'dotnet restore' to restore NuGet packages"
+        }
+      ],
+      "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
+      "continueOnError": true
+    },
+    {
+      "description": "Build the project",
+      "manualInstructions": [
+        {
+          "text": "Run 'dotnet build' to build the project"
+        }
+      ],
+      "actionId": "310D431B-A78B-4D2F-B762-4ED3E3EA9025",
+      "continueOnError": true
+    }
+  ]
+}
