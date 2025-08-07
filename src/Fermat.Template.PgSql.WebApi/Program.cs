@@ -169,6 +169,10 @@ builder.Services.AddFermatIdentityServices<ApplicationDbContext>(opt =>
     opt.UserSessionController.Route = "api/user-sessions";
     opt.UserSessionController.GlobalAuthorization.RequireAuthentication = true;
     opt.UserSessionController.GlobalAuthorization.Roles = [ApplicationRoleConstans.AdminRoleName];
+    
+    opt.UserProfileController.Enabled = true;
+    opt.UserProfileController.Route = "api/user-profiles";
+    opt.UserProfileController.GlobalAuthorization.RequireAuthentication = true;
 
     opt.UserController.Enabled = true;
     opt.UserController.Route = "api/users";
