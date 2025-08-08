@@ -6,19 +6,15 @@ namespace Fermat.Template.PgSql.Application.Services;
 
 public interface IAppSettingAppService
 {
-    #region CRUD Operations
-    Task<AppSettingResponseDto> GetByIdAsync(Guid id, CancellationToken cancellationToken = default);
-    Task<AppSettingResponseDto> GetByKeyAsync(GetAppSettingRequestDto request, CancellationToken cancellationToken = default);
-    Task<PageableResponseDto<AppSettingResponseDto>> GetPageableAndFilterAsync(GetListAppSettingRequestDto request, CancellationToken cancellationToken = default);
+    Task<AppSettingResponseDto> GetByIdAsync(Guid id);
+    Task<AppSettingResponseDto> GetByKeyAsync(string key);
+    Task<List<AppSettingResponseDto>> GetByGroupAsync(string group);
+    Task<PageableResponseDto<AppSettingResponseDto>> GetPageableAndFilterAsync(GetListAppSettingRequestDto request);
+    Task<AppSettingResponseDto> CreateAsync(CreateAppSettingRequestDto request);
+    Task<AppSettingResponseDto> UpdateAsync(Guid id, UpdateAppSettingRequestDto request);
+    Task DeleteAsync(Guid id);
 
-    Task<AppSettingResponseDto> CreateAsync(CreateAppSettingRequestDto request, CancellationToken cancellationToken = default);
-    Task<AppSettingResponseDto> UpdateAsync(Guid id, UpdateAppSettingRequestDto request, CancellationToken cancellationToken = default);
-    Task DeleteAsync(Guid id, CancellationToken cancellationToken = default);
-    #endregion
-
-    #region Utility Operations
-    Task<bool> ExistsAsync(string key, string? environment = null, CancellationToken cancellationToken = default);
-    Task ToggleActiveAsync(Guid id, CancellationToken cancellationToken = default);
-    Task ToggleEncryptionAsync(Guid id, CancellationToken cancellationToken = default);
-    #endregion
+    Task<bool> ExistsAsync(string key);
+    Task ToggleActiveAsync(Guid id);
+    Task ToggleEncryptionAsync(Guid id);
 }

@@ -10,7 +10,6 @@ public class AppSetting : FullAuditedEntity<Guid>
     public AppSettingType Type { get; set; }
     public string? Description { get; set; }
     public string? Group { get; set; }
-    public string? Environment { get; set; }
     public bool IsEncrypted { get; set; } = false;
     public bool IsActive { get; set; } = true;
 }

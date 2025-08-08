@@ -12,9 +12,8 @@ public class AppSettingConfiguration : IEntityTypeConfiguration<AppSetting>
         builder.ApplyGlobalEntityConfigurations();
 
         builder.ToTable("AppSettings");
-        builder.HasIndex(item => new { item.Key, item.Environment, item.DeletionTime }).IsUnique();
+        builder.HasIndex(item => new { item.Key, item.DeletionTime }).IsUnique();
         builder.HasIndex(item => item.Type);
-        builder.HasIndex(item => item.Environment);
         builder.HasIndex(item => item.Group);
         builder.HasIndex(item => item.IsActive);
 
@@ -22,6 +21,5 @@ public class AppSettingConfiguration : IEntityTypeConfiguration<AppSetting>
         builder.Property(item => item.Value).HasMaxLength(1024).IsRequired();
         builder.Property(item => item.Description).HasMaxLength(1024);
         builder.Property(item => item.Group).HasMaxLength(256);
-        builder.Property(item => item.Environment).HasMaxLength(256);
     }
 }
